@@ -1,5 +1,8 @@
 import modules.data_base as m_d_b
 import modules.object_for_draw as m_ob_draw
+import turtle
+
+restart = True
 
 
 def horizontal_victory(value, x, y, start, stop):
@@ -17,8 +20,8 @@ def horizontal_victory(value, x, y, start, stop):
         m_d_b.finish[0] = False
         m_ob_draw.draw_line(x, y, angle = 0, step = 200)
         m_ob_draw.win(50,0,2)
-        
-        
+
+          
 def vertical_victory(start_cell, value, x, y):
     count_score = 0
     for count in range(3):
@@ -30,7 +33,6 @@ def vertical_victory(start_cell, value, x, y):
         m_d_b.finish[0] = False
         m_ob_draw.draw_line(x, y, angle = 90, step = 200)
         m_ob_draw.win(50,0,1)
-        
         
     elif count_score == 3 and value == 2:
         m_d_b.finish[0] = False
