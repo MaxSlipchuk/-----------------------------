@@ -1,30 +1,62 @@
-import data_base as db
-import turtle
+import data_base as d_b
+import create_screen as c_screen
+import object_for_draw as ob_draw
+import turtle 
 
-t4 = turtle.Turtle()
-t4.width(5)
-t4.color("darkgreen")
-t4.speed(0)
-t4.hideturtle()
-
-def draw_line(x, y):
-    t4.penup()
-    t4.goto(x,y)
-    t4.pendown()
-    t4.forward(200)
 
 def horizontal_victory(value, x, y, start, stop):
     count_score = 0
     for number in range(start, stop):
-        if db.komirka[number] == value:
+        if d_b.komirka[number] == value:
             count_score += 1
-    if count_score == 3:
-        draw_line(x, y)
-    
-def vertical_victory (value, x, y, start, stop):
-    count_score = 0
 
-            
-            
-    
+    if count_score == 3 and value == 1:
+        d_b.finish[0] = False
+        ob_draw.draw_line(x, y, angle = 0, step = 200)
+        ob_draw.win(50,0,1)
+        
+    elif count_score == 3 and value == 2:
+        d_b.finish[0] = False
+        ob_draw.draw_line(x, y, angle = 0, step = 200)
+        ob_draw.win(50,0,2)
+        
+        
+def vertical_victory(start_cell, value, x, y):
+    count_score = 0
+    for count in range(3):
+        if d_b.komirka[start_cell] == value:
+            count_score += 1
+            start_cell += 3
+
+    if count_score == 3 and value == 1:
+        d_b.finish[0] = False
+        ob_draw.draw_line(x, y, angle = 90, step = 200)
+        ob_draw.win(50,0,1)
+        
+        
+    elif count_score == 3 and value == 2:
+        d_b.finish[0] = False
+        ob_draw.draw_line(x, y, angle = 90, step = 200)
+        ob_draw.win(50,0,2)
+        
+        
+def diagonal_victory(value):
+    if d_b.komirka[0] == value and d_b.komirka[4] == value and d_b.komirka[8] == value:
+        if value == 1:
+            ob_draw.draw_line(x = -50, y = 50, angle = 45, step = (70 * 4))
+            ob_draw.win(50,0,1)
+        elif value == 2:
+            ob_draw.draw_line(x = -50, y = 50, angle = 45, step = (70 * 4))
+            ob_draw.win(50,0,2)
+        d_b.finish[0] = False
+        
+    elif d_b.komirka[2] == value and d_b.komirka[4] == value and d_b.komirka[6] == value:
+        if value == 1:
+            ob_draw.draw_line(x = 150, y = 50, angle = 135, step = (70 * 4))
+            ob_draw.win(50,0,1)
+        elif value == 2:
+            ob_draw.draw_line(x = 150, y = 50, angle = 135, step = (70 * 4))
+            ob_draw.win(50,0,2)
+        d_b.finish[0] = False
+        
     
