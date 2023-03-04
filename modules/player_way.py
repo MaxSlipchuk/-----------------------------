@@ -3,6 +3,8 @@ import modules.draw_zero as m_d_zero
 import modules.data_base as m_d_b
 import modules.win_lose as m_w_l
 import modules.clear as m_clear
+import modules.save_game as m_s_game
+import json
 import turtle
 
 
@@ -23,7 +25,21 @@ def who_turn(x, y, index):
 
         m_w_l.diagonal_victory(1)
 
+
         if m_d_b.finish[0] == False:
+            
+            # win_1 = 0
+
+            # with open(m_s_game.path, 'r') as file:
+            #    players = json.load(file)
+
+            # count_winner_1 = 'кількість перемог: '+ str(win_1 + 1)
+            # players["player_1"] += count_winner_1
+
+            # with open(m_s_game.path, 'w') as file:
+            #     json.dump(count_winner_1, file, ensure_ascii = False, indent = 4)
+
+
             restart = turtle.textinput("Restar", """Почати гру спочатку?
         Напишіть 'так'""")
         
@@ -55,6 +71,18 @@ def who_turn(x, y, index):
         m_w_l.diagonal_victory(2)
 
         if m_d_b.finish[0] == False:
+
+            # win_2 = 0
+
+            # with open(m_s_game.path, 'r') as file:
+            #    players = json.load(file)
+            
+            # count_winner_2 = "кількісьть перемог: " + str(win_2 + 1)
+            # players["player_2"] += count_winner_2
+
+            # with open(m_s_game.path, 'w') as file:
+            #     json.dump(count_winner_2, file, ensure_ascii = False, indent = 4)
+
             restart = turtle.textinput("Restar", """Почати гру спочатку?
         Напишіть 'так'""")
         

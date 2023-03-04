@@ -1,0 +1,10 @@
+{
+    "player_1": {
+        "name": "Max",
+        "count_win": 0
+    },
+    "player_2": {
+        "name": "Mikola",
+        "count_win": 0
+    }
+}

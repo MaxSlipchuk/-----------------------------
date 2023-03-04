@@ -1,10 +1,13 @@
 import turtle
-# import customtkinter #?
-# import tkinter
+import tkinter
 
-
+# створюю вікно черепашки
 screen = turtle.Screen()
-screen.setup(800, 800, 0, 0)
+
+# задаю ширину і висоту вікна
+screen.setup(800, 800)
 
 screen.title("Cross/Zero")
+
+
 

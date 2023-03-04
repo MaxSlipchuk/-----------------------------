@@ -2,8 +2,6 @@ import modules.data_base as m_d_b
 import modules.object_for_draw as m_ob_draw
 import turtle
 
-restart = True
-
 
 def horizontal_victory(value, x, y, start, stop):
     count_score = 0

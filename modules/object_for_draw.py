@@ -1,4 +1,6 @@
 import turtle
+import json
+import modules.save_game as m_s_game
 
 
 # черепашка відповідає за переможну лінію
@@ -52,21 +54,33 @@ def win(x, y, value):
     t6.write("ВІТАЮ", font = style_t6, align = "center")
 
     t7.penup()
-    t7.goto(x,y - 75)
+    t7.goto(x,y - 65)
     t7.pendown()
-    if value == 1:     
+    if value == 1:
+
+        with open(m_s_game.path, "r") as file:
+            winner = json.load(file)
+            winner = winner["player_1"]
+
         t7.color("red")
-        t7.write("ПЕРЕМОГЛИ", font = style_t7, align = "center")
+        t7.write("""ПЕРЕМІГ
+ГРАВЕЦЬ""", font = style_t7, align = "center")
         t7.penup()
         t7.goto(x, y - 100)
         t7.pendown()
-        t7.write("ХРЕСТИКИ", font = style_t7, align = "center")
+        t7.write(f"'{winner}'", font = style_t7, align = "center")
     elif value == 2:
+
+        with open(m_s_game.path, "r") as file:
+            winner_1 = json.load(file)
+            winner_1 = winner_1["player_2"]
+
         t7.color("dodgerblue")
-        t7.write("ПЕРЕМОГЛИ", font = style_t7, align = "center")
+        t7.write("""ПЕРЕМІГ
+ГРАВЕЦЬ""", font = style_t7, align = "center")
         t7.penup()
         t7.goto(x, y - 100)
         t7.pendown()
-        t7.write("НУЛИКИ", font = style_t7, align = "center")
+        t7.write(f"'{winner_1}'", font = style_t7, align = "center")
     
 
