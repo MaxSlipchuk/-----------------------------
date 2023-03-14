@@ -9,8 +9,12 @@ def start_game():
     import modules.create_screen as m_c_screen
     import modules.draw_table as m_d_table
     import modules.cell_click_detection as m_c_click
+    import modules.table_result as m_t_result
 
     m_d_table.draw_table(-100,100)
+    m_t_result.table_result(-320,100)
+
+    
     m_c_screen.screen.onclick(m_c_click.click_cell, btn=1, add=True)
     turtle.done()
 
@@ -28,10 +32,9 @@ def lets_go():
     with open(m_s_game.path, "r") as file:
         player1 = json.load(file)
 
-
     # Створення заголовку
     label_1 = customtkinter.CTkLabel(master = screen_c_z,
-                                     text = f"Гравець '{player1['player_1']}' оберає за кого грати",
+                                     text = f"Гравець '{player1['player_1']['name']}' оберає за кого грати",
                                      font = ("Comic Sans MS", 20))
     label_1.pack(pady = 10)
 
@@ -41,14 +44,12 @@ def lets_go():
         screen_c_z.destroy()
         start_game()
         
-
     # Створення функції під кнопку "нулики"
     def button_zero():
         m_d_b.step[0] = "zero"
         screen_c_z.destroy()
         start_game()
         
-
     # Створення кнопки хрестики
     btn_cross = customtkinter.CTkButton(master = screen_c_z,
                                         text = "ХРЕСТИКИ",
@@ -68,7 +69,6 @@ def lets_go():
                                         fg_color = "dodgerblue",
                                         command = button_zero)
     btn_zero.pack(pady = 5)
-
 
     screen_c_z.mainloop()
 

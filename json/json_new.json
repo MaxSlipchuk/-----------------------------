@@ -1,10 +1,10 @@
 {
     "player_1": {
-        "name": "Max",
+        "name": "ref",
         "count_win": 0
     },
     "player_2": {
-        "name": "Mikola",
+        "name": "sdf",
         "count_win": 0
     }
 }

@@ -1,4 +1,6 @@
 import modules.player_way as m_p_way
+import modules.clear as m_clear
+import modules.data_base as m_d_b
 
 def click_cell(x, y):
     # створення першого рядка
@@ -30,3 +32,13 @@ def click_cell(x, y):
             m_p_way.who_turn(0,-100,7)
         elif x > 100 and x < 200:
             m_p_way.who_turn(100,-100,8)
+
+def click_restart(x,y):
+    if y < -85 and y > -120:
+        if x > -25 and x < 150:
+
+            m_d_b.finish[0] = True
+
+            for i in range(9):
+                m_d_b.komirka[i] = 0
+            m_clear.clean()

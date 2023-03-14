@@ -10,3 +10,4 @@ def clean():
     m_ob_draw.t5.clear()
     m_ob_draw.t6.clear()
     m_ob_draw.t7.clear()
+    m_ob_draw.t8.clear()
